@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solvexx - Digital Solutions</title>
+    <script>
+      // Redirect to index.html with the path as a query parameter
+      // This allows client-side routing to work on GitHub Pages
+      const path = window.location.pathname.slice(1);
+      if (path) {
+        window.location.replace(
+          window.location.origin + '/#' + path + window.location.search
+        );
+      } else {
+        window.location.replace(window.location.origin);
+      }
+    </script>
+  </head>
+  <body>
+    <div>Redirecting...</div>
+  </body>
+</html>

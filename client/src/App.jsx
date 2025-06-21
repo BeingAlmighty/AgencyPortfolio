@@ -1,0 +1,64 @@
+import { QueryClientProvider } from "@tanstack/react-query";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { queryClient } from "./lib/queryClient";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { ReactLenis } from "lenis/react";
+import { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Services from "./components/Services";
+import Projects from "./components/Projects";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+import ProjectShowcase from "./pages/ProjectShowcase";
+import ScrollToTop from "./components/ScrollToTop";
+
+function HomePage() {
+  useEffect(() => {
+    // Prevent automatic scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Ensure we start at the top
+    window.scrollTo(0, 0);
+    
+    // Clear any hash navigation
+    if (window.location.hash) {
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, []);
+
+  return (
+    <ReactLenis root>
+      <main className="relative">
+        <Navbar />
+        <Hero />
+        <Services />
+        <Projects />
+        <ContactSection />
+        <Footer />
+      </main>
+    </ReactLenis>
+  );
+}
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Router>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/project/:projectId" element={<ProjectShowcase />} />
+          </Routes>
+        </Router>
+        <Toaster />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
+
+export default App;
