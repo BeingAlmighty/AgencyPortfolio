@@ -93,8 +93,8 @@ export const projectsData = {
     ],
     quote: "This sales analysis dashboard has revolutionized how we track and analyze our sales performance. The intuitive visualizations and real-time insights have helped us identify key trends and improve our revenue by 25%.",
     author: {
-      name: "Sarah Johnson",
-      title: "Sales Director, TechSolutions Corp"
+      name: "Aryan Mehra",
+      title: "Sales Director"
     }
   },
   'ai-receptionist': {
@@ -155,8 +155,8 @@ export const projectsData = {
     ],
     quote: "The AI Receptionist has transformed our customer service operations. It handles 80% of inquiries automatically while maintaining the personal touch our customers expect.",
     author: {
-      name: "Jennifer Martinez",
-      title: "Customer Experience Director, ServicePlus Inc"
+      name: "Demo Project",
+      title: "This is a demo project."
     }
   },
   'workflow-automation-system': {
@@ -218,8 +218,8 @@ export const projectsData = {
     ],
     quote: "The Workflow Automation System has revolutionized our operations. We've eliminated 75% of manual tasks and our team can now focus on strategic initiatives instead of repetitive work.",
     author: {
-      name: "Robert Thompson",
-      title: "Operations Director, Global Manufacturing Corp"
+      name: "Demo",
+      title: "This is a demo project."
     }
   }
 };
