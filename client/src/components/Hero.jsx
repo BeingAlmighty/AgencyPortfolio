@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import websiteLogo from '../assets/website logo.webp';
 import zapierImage from '../assets/zapier.jpg';
+import { Brain, Globe, BarChart3, Zap } from 'lucide-react';
 
 // Tech Icons as SVG components
 const AIIcon = ({ className }) => (
@@ -141,10 +142,10 @@ const HeroContent = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <ServiceCard icon="🤖" title="AI Agents" description="Intelligent automation that works 24/7" />
-            <ServiceCard icon="🌐" title="Web Development" description="Modern apps with AI integration" />
-            <ServiceCard icon="📊" title="Data Dashboards" description="Real-time analytics & insights" />
-            <ServiceCard icon="⚡" title="Workflow Automation" description="Streamline your operations" />
+            <ServiceCard icon={Brain} title="AI Agents" description="Intelligent automation that works 24/7" />
+            <ServiceCard icon={Globe} title="Web Development" description="Modern apps with AI integration" />
+            <ServiceCard icon={BarChart3} title="Data Dashboards" description="Real-time analytics & insights" />
+            <ServiceCard icon={Zap} title="Workflow Automation" description="Streamline your operations" />
           </motion.div>
 
           {/* CTA Buttons */}
@@ -189,9 +190,15 @@ const HeroContent = () => {
   );
 };
 
-const ServiceCard = ({ icon, title, description }) => (
-  <div className="group text-center p-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-[#ff5722]/40 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-[#ff5722]/10">
-    <div className="text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">{icon}</div>
+const ServiceCard = ({ icon: IconComponent, title, description }) => (
+  <div className="group text-center p-4 rounded-lg bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-[#ff5722]/40 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-[#ff5722]/10">
+    <div className="flex justify-center mb-3">
+      <IconComponent
+        size={28}
+        strokeWidth={1.5}
+        className="text-gray-300 group-hover:text-[#ff5722] transition-colors duration-300 ease-out group-hover:scale-110"
+      />
+    </div>
     <h3 className="text-base font-bold text-[#ff5722] mb-2">{title}</h3>
     <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
   </div>
